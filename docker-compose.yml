@@ -1,0 +1,15 @@
+services:
+  sshd_service:
+    image: mysshdsrv
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      SSH_USER: ${SSH_USER:-user}
+      SSH_PASS: ${SSH_PASS:-password}
+      SSH_PORT: ${SSH_PORT:-22}
+    restart: always
+    ports:
+      - "${SSH_PORT}:22/tcp"
+    volumes:
+      - "./sftp.conf:/etc/ssh/sshd_config.d/sftp.conf"

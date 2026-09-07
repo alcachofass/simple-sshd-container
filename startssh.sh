@@ -1,9 +1,6 @@
 #!/bin/sh
 
-useradd -d /home/"$USER" -m "$USER"
-echo "$USER":"$PASS" | chpasswd
-
-mkdir /home/"$USER"/mnt
-mkdir /home/"$USER"/tmp
+useradd -d /home/"$SSH_USER" -m "$SSH_USER"
+echo "$SSH_USER":"$SSH_PASS" | chpasswd
 
 /usr/sbin/sshd -D
