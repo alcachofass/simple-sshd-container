@@ -12,4 +12,4 @@ services:
     ports:
       - "${SSH_PORT}:22/tcp"
     volumes:
-      - "./sftp.conf:/etc/ssh/sshd_config.d/sftp.conf"
+      - "./sftp.conf:/etc/ssh/sftp.conf.template:ro"
