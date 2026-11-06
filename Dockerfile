@@ -1,6 +1,6 @@
-FROM ubuntu:latest
+FROM ubuntu:26.04
 
-RUN apt update -y && apt upgrade -y && apt install -y openssh-server
+RUN apt-get update -y && apt-get upgrade -y && apt-get install -y openssh-server --no-install-recommends
 
 COPY startssh.sh /usr/sbin/startssh.sh
 RUN chmod +x /usr/sbin/startssh.sh
